@@ -12,7 +12,13 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
-        children: const [],
+        children: const [
+          // Section 1
+          // Saloni will work here :)
+
+          //Section 2
+          // Shubham will work here :>
+        ],
       ),
     );
   }
