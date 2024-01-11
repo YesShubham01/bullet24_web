@@ -1,6 +1,6 @@
 name: Deploy to Firebase Hosting on merge
 
-'on':
+on:
   push:
     branches:
       - main
@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Set up Dart and Flutter
-        uses: dart-lang/setup-dart@v2
+        uses: dart-lang/setup-dart@v1
         with:
           flutter-version: '2.5.2'
 
