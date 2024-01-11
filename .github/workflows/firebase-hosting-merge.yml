@@ -11,14 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set up Dart and Flutter
-        uses: dart-lang/setup-dart@v1
-        with:
-          flutter-version: '2.5.2'
-
-      - run: flutter pub get
-      - run: flutter build web
-
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
