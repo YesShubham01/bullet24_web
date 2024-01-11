@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 class Section1 extends StatelessWidget {
   const Section1({super.key});
@@ -9,9 +10,9 @@ class Section1 extends StatelessWidget {
     return Container(
       height: 600,
       decoration: const BoxDecoration(color: Colors.black),
-      child: const Stack(
+      child: Stack(
         children: [
-          Column(
+          const Column(
             // mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
@@ -75,10 +76,33 @@ class Section1 extends StatelessWidget {
             ],
           ),
           Positioned(
-            left: 473,
+            // left: 473,
             top: 100,
-            child: Image(
-              image: AssetImage("Assets/bullet_classic.png"),
+            child: ResponsiveBuilder(
+              builder: (context, sizingInformation) {
+                if (sizingInformation.deviceScreenType ==
+                    DeviceScreenType.mobile) {
+                  // Adjust layout for mobile
+                  return SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    height: 550,
+                    // color: Colors.red,
+                    child: const Image(
+                      image: AssetImage("Assets/bullet_classic.png"),
+                    ),
+                  );
+                } else {
+                  // Adjust layout for other screen types
+                  return SizedBox(
+                    width: MediaQuery.of(context).size.width + 320,
+                    height: 550,
+                    // color: Colors.red,
+                    child: const Image(
+                      image: AssetImage("Assets/bullet_classic.png"),
+                    ),
+                  );
+                }
+              },
             ),
           ),
         ],
